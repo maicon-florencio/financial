@@ -17,5 +17,4 @@ public class BankAccount implements Serializable {
     private String numeroConta;
     private Float saldo;
 
-    private String usuario;
 }
