@@ -27,4 +27,8 @@ public class TransacaoServiceTest {
         Assertions.assertNotNull(result);
         Assertions.assertEquals(msg,result.getMessage());
     }
+
+
+
+
 }

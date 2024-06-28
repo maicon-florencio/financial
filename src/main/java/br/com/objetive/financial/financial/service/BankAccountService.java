@@ -37,10 +37,10 @@ public class BankAccountService {
         if(Objects.isNull(bankAccount)) throw new NotFoundEntityException("Conta não encontrada");
         return bankAccount.getSaldo();
     }
-    public void atualizarBankAccountPorTransacao(TransacaoResponseDTO dto){
-        BankAccount byNmConta = findAccountByNmConta(dto.getNmConta());
+    public void atualizarBankAccountPorTransacao(String nmConta, Float saldoAAtualizar){
+        BankAccount byNmConta = findAccountByNmConta(nmConta);
         if(byNmConta != null){
-            byNmConta.setSaldo(dto.getSaldo());
+            byNmConta.setSaldo(saldoAAtualizar);
             save(byNmConta);
         }
     }

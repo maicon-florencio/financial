@@ -18,9 +18,9 @@ public class TransacaoService {
     public TransacaoResponseDTO criarTransacaoConta(TransacaoRequestDTO dto) {
         if(dto.getNmConta().isEmpty()) throw new BussinessExceptionErro("Erro: Numero conta está vazio.");
         Float saldoConta = verificarSaldoConta(dto);
-        TransacaoResponseDTO transacaoResponseDTO = processTransacaoAnalize(dto, saldoConta);
-        bankAccountService.atualizarBankAccountPorTransacao(transacaoResponseDTO);
-        return transacaoResponseDTO;
+        TransacaoResponseDTO trDTO = processTransacaoAnalize(dto, saldoConta);
+        bankAccountService.atualizarBankAccountPorTransacao(trDTO.getNmConta(),trDTO.getSaldo());
+        return trDTO;
     }
 
     private Float verificarSaldoConta(TransacaoRequestDTO dto){

@@ -1,17 +1,24 @@
 package br.com.objetive.financial.financial.service;
 
+import br.com.objetive.financial.financial.builder.BankAccountBuilder;
+import br.com.objetive.financial.financial.domain.BankAccount;
 import br.com.objetive.financial.financial.domain.dto.BankAccountDTO;
 import br.com.objetive.financial.financial.exception.BussinessExceptionErro;
+import br.com.objetive.financial.financial.repository.BankAccountRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
+import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 @SpringBootTest
 public class BankAccountServiceTest {
-    @InjectMocks
+    @Autowired
     private BankAccountService service;
+    @MockBean
+    private BankAccountRepository repository;
     @Test
     @DisplayName("Teste para valdiar que não será salvo conta sem saldo")
     public void naoDeveCriarContaComSaldoZerado(){
@@ -52,6 +59,31 @@ public class BankAccountServiceTest {
         }
         Assertions.assertNotNull(result);
         Assertions.assertEquals(msg,result.getMessage());
+
+    }
+    @Test
+    public void deveCriarBankAccount(){
+        BankAccount bankAccount = BankAccountBuilder.createEntity(false);
+        Mockito.when(repository.save(Mockito.any())).thenReturn(bankAccount);
+
+        BankAccountDTO result = service.criarConta(BankAccountDTO.builder().numeroConta("12345").saldo(1000f).build());
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(bankAccount.getSaldo(),result.getSaldo());
+
+        Mockito.verify(repository, Mockito.times(1)).getBankAccountByNumeroConta(Mockito.anyString());
+        Mockito.verify(repository, Mockito.times(1)).save(Mockito.any());
+
+    }
+
+    @Test
+    public void devoAtualizarSaldoConta(){
+        BankAccountDTO bankAccount = BankAccountBuilder.createBankDto(true);
+        BankAccountDTO result = service.criarConta(bankAccount);
+        Assertions.assertNotNull(result);
+        Assertions.assertEquals(bankAccount.getSaldo(),result.getSaldo());
+
+        Mockito.verify(repository, Mockito.times(1)).getBankAccountByNumeroConta(Mockito.anyString());
+        Mockito.verify(repository, Mockito.times(1)).save(Mockito.any());
 
     }
 
