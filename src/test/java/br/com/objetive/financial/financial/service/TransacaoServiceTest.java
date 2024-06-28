@@ -1,8 +1,6 @@
 package br.com.objetive.financial.financial.service;
 
-import br.com.objetive.financial.financial.domain.dto.BankAccountDTO;
 import br.com.objetive.financial.financial.domain.dto.TransacaoDTO;
-import br.com.objetive.financial.financial.domain.service.TransacaoService;
 import br.com.objetive.financial.financial.exception.BussinessExceptionErro;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

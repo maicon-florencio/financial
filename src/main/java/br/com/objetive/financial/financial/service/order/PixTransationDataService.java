@@ -1,4 +1,4 @@
-package br.com.objetive.financial.financial.domain.service.order;
+package br.com.objetive.financial.financial.service.order;
 
 import br.com.objetive.financial.financial.domain.dto.TransacaoDTO;
 import br.com.objetive.financial.financial.domain.dto.enumeration.TipoTransacaoEnum;
@@ -19,7 +19,7 @@ public class PixTransationDataService extends AbstractTransationDataService{
     }
 
     @Override
-    public void process(TransacaoDTO transacaoDTO) {
-
+    public TransacaoDTO process(TransacaoDTO transacaoDTO) {
+        return null;
     }
 }

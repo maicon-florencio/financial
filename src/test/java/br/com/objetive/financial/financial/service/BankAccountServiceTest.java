@@ -1,15 +1,12 @@
 package br.com.objetive.financial.financial.service;
 
 import br.com.objetive.financial.financial.domain.dto.BankAccountDTO;
-import br.com.objetive.financial.financial.domain.service.BankAccountService;
 import br.com.objetive.financial.financial.exception.BussinessExceptionErro;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import java.util.zip.DataFormatException;
 
 @SpringBootTest
 public class BankAccountServiceTest {

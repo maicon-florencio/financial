@@ -1,4 +1,4 @@
-package br.com.objetive.financial.financial.domain.service.order;
+package br.com.objetive.financial.financial.service.order;
 
 import br.com.objetive.financial.financial.domain.dto.enumeration.TipoTransacaoEnum;
 import jakarta.annotation.PostConstruct;

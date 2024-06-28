@@ -1,4 +1,4 @@
-package br.com.objetive.financial.financial.domain.service.order;
+package br.com.objetive.financial.financial.service.order;
 
 import br.com.objetive.financial.financial.domain.dto.TransacaoDTO;
 import br.com.objetive.financial.financial.domain.dto.enumeration.TipoTransacaoEnum;
@@ -12,14 +12,14 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 @Service
 @Scope(value = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class CreditTransationDataService extends AbstractTransationDataService{
+public class DebitTransationDataService extends AbstractTransationDataService{
     @Override
     public TipoTransacaoEnum getTransationType() {
-        return TipoTransacaoEnum.CREDITO;
+        return TipoTransacaoEnum.DEBITO;
     }
 
     @Override
-    public void process(TransacaoDTO transacaoDTO) {
-
+    public TransacaoDTO process(TransacaoDTO transacaoDTO) {
+        return null;
     }
 }

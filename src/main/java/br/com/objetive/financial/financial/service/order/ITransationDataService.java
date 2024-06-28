@@ -1,4 +1,4 @@
-package br.com.objetive.financial.financial.domain.service.order;
+package br.com.objetive.financial.financial.service.order;
 
 import br.com.objetive.financial.financial.domain.dto.TransacaoDTO;
 import br.com.objetive.financial.financial.domain.dto.enumeration.TipoTransacaoEnum;
@@ -6,5 +6,5 @@ import br.com.objetive.financial.financial.domain.dto.enumeration.TipoTransacaoE
 public interface ITransationDataService {
 
     TipoTransacaoEnum getTransationType();
-    void process(TransacaoDTO transacaoDTO);
+    TransacaoDTO process(TransacaoDTO transacaoDTO);
 }

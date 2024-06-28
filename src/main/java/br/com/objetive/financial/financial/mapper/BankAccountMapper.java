@@ -1,4 +1,4 @@
-package br.com.objetive.financial.financial.domain.mapper;
+package br.com.objetive.financial.financial.mapper;
 
 import br.com.objetive.financial.financial.domain.BankAccount;
 import br.com.objetive.financial.financial.domain.dto.BankAccountDTO;

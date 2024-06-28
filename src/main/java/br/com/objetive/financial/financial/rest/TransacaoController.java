@@ -1,7 +1,7 @@
-package br.com.objetive.financial.financial.domain.rest;
+package br.com.objetive.financial.financial.rest;
 
 import br.com.objetive.financial.financial.domain.dto.TransacaoDTO;
-import br.com.objetive.financial.financial.domain.service.TransacaoService;
+import br.com.objetive.financial.financial.service.TransacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
