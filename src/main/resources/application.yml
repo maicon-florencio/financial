@@ -4,8 +4,8 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/db_financial?useTimezone=true&serverTimezone=UTC
-    username: root
-    password: root123
+    username: ${USER_DB}
+    password: ${USER_DB_PASSWORD}
   jpa:
     hibernate:
       ddl-auto: update
