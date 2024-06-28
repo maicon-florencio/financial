@@ -77,10 +77,10 @@ public class BankAccountServiceTest {
 
     @Test
     public void devoAtualizarSaldoConta(){
-        BankAccountDTO bankAccount = BankAccountBuilder.createBankDto(true);
-        BankAccountDTO result = service.criarConta(bankAccount);
-        Assertions.assertNotNull(result);
-        Assertions.assertEquals(bankAccount.getSaldo(),result.getSaldo());
+        BankAccount bankAccount = BankAccountBuilder.createEntity(false);
+        Mockito.when(repository.getBankAccountByNumeroConta(Mockito.any())).thenReturn(bankAccount);
+
+        service.atualizarBankAccountPorTransacao("123456", 500f);
 
         Mockito.verify(repository, Mockito.times(1)).getBankAccountByNumeroConta(Mockito.anyString());
         Mockito.verify(repository, Mockito.times(1)).save(Mockito.any());
