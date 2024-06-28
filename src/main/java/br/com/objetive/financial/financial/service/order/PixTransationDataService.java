@@ -1,7 +1,10 @@
 package br.com.objetive.financial.financial.service.order;
 
-import br.com.objetive.financial.financial.domain.dto.TransacaoDTO;
+import br.com.objetive.financial.financial.domain.dto.TransacaoRequestDTO;
+import br.com.objetive.financial.financial.domain.dto.TransacaoResponseDTO;
 import br.com.objetive.financial.financial.domain.dto.enumeration.TipoTransacaoEnum;
+import br.com.objetive.financial.financial.exception.BussinessExceptionErro;
+import br.com.objetive.financial.financial.util.TransacaoUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Scope;
@@ -19,7 +22,15 @@ public class PixTransationDataService extends AbstractTransationDataService{
     }
 
     @Override
-    public TransacaoDTO process(TransacaoDTO transacaoDTO) {
-        return null;
+    public TransacaoResponseDTO process(TransacaoRequestDTO transacaoDTO,Float saldoContaAtual) {
+        Float valorComPercentualServico = TransacaoUtil.getValorComPercentualServico(transacaoDTO.getValor(),0.0f);
+        if(valorComPercentualServico > saldoContaAtual )
+            throw new BussinessExceptionErro(TransacaoUtil.ERRO_VALOR_MAIS_TAXA_MAIOR_SALDO);
+        return TransacaoResponseDTO.builder()
+                .nmConta(transacaoDTO.getNmConta())
+                .saldo(saldoContaAtual - valorComPercentualServico)
+                .build();
     }
+
+
 }

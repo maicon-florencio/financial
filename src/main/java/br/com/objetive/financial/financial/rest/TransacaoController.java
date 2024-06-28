@@ -1,6 +1,7 @@
 package br.com.objetive.financial.financial.rest;
 
-import br.com.objetive.financial.financial.domain.dto.TransacaoDTO;
+import br.com.objetive.financial.financial.domain.dto.TransacaoRequestDTO;
+import br.com.objetive.financial.financial.domain.dto.TransacaoResponseDTO;
 import br.com.objetive.financial.financial.service.TransacaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ public class TransacaoController {
     private TransacaoService service;
 
     @PostMapping
-    public ResponseEntity<TransacaoDTO> criarTransacaoBancaria(@RequestBody TransacaoDTO dto){
+    public ResponseEntity<TransacaoResponseDTO> criarTransacaoBancaria(@RequestBody TransacaoRequestDTO dto){
        return new ResponseEntity<>(service.criarTransacaoConta(dto), HttpStatus.CREATED);
     }
 }

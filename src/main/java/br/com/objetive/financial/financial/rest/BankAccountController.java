@@ -24,10 +24,12 @@ public class BankAccountController {
     }
 
     @Operation(
-            summary = "Fetch conta por numero conta",
-            description = "Busca conta passando nmConta")
+            summary = "Busca bank acount por numero conta",
+            description = "Busca conta via query param nmConta")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "successful operation")
+            @ApiResponse(responseCode = "200", description = "successful operation"),
+            @ApiResponse(responseCode = "404", description = "not found operation"),
+            @ApiResponse(responseCode = "400", description = "BadRequest operation")
     })
     @GetMapping()
     public ResponseEntity<BankAccountDTO> buscaPorNmConta(@RequestParam("numero")  String nmConta){

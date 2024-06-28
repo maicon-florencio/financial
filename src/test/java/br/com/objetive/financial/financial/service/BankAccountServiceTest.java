@@ -42,7 +42,7 @@ public class BankAccountServiceTest {
 
     @Test
     @DisplayName("Teste para validar erro ao buscar nmConta inexistente")
-    public void deveBuscaContaVazio() throws InstantiationException, IllegalAccessException {
+    public void deveBuscaContaVazio() {
         BussinessExceptionErro result= null;
         String msg = "Erro: Numero conta está vazio.";
         try {

@@ -1,6 +1,6 @@
 package br.com.objetive.financial.financial.service;
 
-import br.com.objetive.financial.financial.domain.dto.TransacaoDTO;
+import br.com.objetive.financial.financial.domain.dto.TransacaoRequestDTO;
 import br.com.objetive.financial.financial.exception.BussinessExceptionErro;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -20,7 +20,7 @@ public class TransacaoServiceTest {
         BussinessExceptionErro result= null;
         String msg = "Erro: Numero conta está vazio.";
         try {
-            service.criarTransacaoConta(TransacaoDTO.builder().nmConta("").saldo(0.0f).build());
+            service.criarTransacaoConta(TransacaoRequestDTO.builder().nmConta("").valor(0.0f).build());
         }catch (BussinessExceptionErro ex){
             result = ex;
         }
