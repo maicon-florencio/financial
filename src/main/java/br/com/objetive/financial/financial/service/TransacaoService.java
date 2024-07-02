@@ -18,9 +18,9 @@ public class TransacaoService {
     public TransacaoResponseDTO criarTransacaoConta(TransacaoRequestDTO dto) {
         if(dto.getNmConta().isEmpty()) throw new BussinessExceptionErro("Erro: Numero conta está vazio.");
         Float saldoConta = verificarSaldoConta(dto);
-        TransacaoResponseDTO trDTO = processTransacaoAnalize(dto, saldoConta);
-        bankAccountService.atualizarBankAccountPorTransacao(trDTO.getNmConta(),trDTO.getSaldo());
-        return trDTO;
+        Float novoSaldoAposCalculoPercentualTipoPagamento = saldoConta - processTransacaoAnalize(dto, saldoConta);
+        bankAccountService.atualizarBankAccountPorTransacao(dto.getNmConta(),novoSaldoAposCalculoPercentualTipoPagamento);
+        return TransacaoResponseDTO.builder().nmConta(dto.getNmConta()).saldo(novoSaldoAposCalculoPercentualTipoPagamento).build();
     }
 
     private Float verificarSaldoConta(TransacaoRequestDTO dto){
@@ -29,9 +29,9 @@ public class TransacaoService {
         return saldoAtual;
     }
 
-    private TransacaoResponseDTO processTransacaoAnalize(TransacaoRequestDTO dto,  Float saldoConta){
+    private Float processTransacaoAnalize(TransacaoRequestDTO dto,  Float saldoConta){
         ITransationDataService service = serviceFactory.getTransationTypeProcess(TipoTransacaoEnum.getTipoTransacaoEnumByValor(dto.getFormaPagamento()));
-       return service.process(dto,saldoConta);
+       return service.process(dto.getValor(),saldoConta);
     }
 
 }
