@@ -11,5 +11,4 @@ import java.io.Serializable;
 public class BankAccountDTO implements Serializable {
     private String numeroConta;
     private Float saldo;
-
 }
