@@ -18,6 +18,16 @@ import org.springframework.web.bind.annotation.*;
 public class BankAccountController {
     @Autowired
     private  BankAccountService service;
+
+    @Operation(
+            summary = "Criar bank acount por numero conta",
+            description = "Criar conta via query param nmConta")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "successful operation"),
+            @ApiResponse(responseCode = "404", description = "not found operation"),
+            @ApiResponse(responseCode = "400", description = "BadRequest operation"),
+            @ApiResponse(responseCode = "422", description = "Bussiness operation")
+    })
     @PostMapping
     public ResponseEntity<BankAccountDTO> criarConta(@Validated @RequestBody BankAccountDTO dto){
         return new ResponseEntity<>(service.criarConta(dto), HttpStatus.CREATED);
