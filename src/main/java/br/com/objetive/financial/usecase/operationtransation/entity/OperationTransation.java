@@ -1,9 +1,6 @@
 package br.com.objetive.financial.usecase.operationtransation.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,12 +11,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "operation_transation")
 public class OperationTransation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nmConta;
-    private Float saldo;
-    private String formaPagamento;
+    private String numberAccount;
+    private Float balance;
+    private String payments;
 }

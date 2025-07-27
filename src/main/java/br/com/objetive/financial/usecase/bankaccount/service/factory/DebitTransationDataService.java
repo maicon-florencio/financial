@@ -1,6 +1,6 @@
-package br.com.objetive.financial.usecase.operationtransation.service.factory;
+package br.com.objetive.financial.usecase.bankaccount.service.factory;
 
-import br.com.objetive.financial.usecase.operationtransation.enumeration.TypeOperationTransationEnum;
+import br.com.objetive.financial.usecase.bankaccount.enumeration.TypeOperationTransationEnum;
 import br.com.objetive.financial.common.exception.BusinessException;
 import br.com.objetive.financial.common.TransacaoUtil;
 import lombok.AllArgsConstructor;

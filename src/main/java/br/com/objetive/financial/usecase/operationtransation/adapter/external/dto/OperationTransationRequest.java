@@ -1,5 +1,6 @@
 package br.com.objetive.financial.usecase.operationtransation.adapter.external.dto;
 
+import br.com.objetive.financial.usecase.bankaccount.enumeration.TypeOperationTransationEnum;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,10 +14,10 @@ import lombok.NoArgsConstructor;
 public class OperationTransationRequest {
 
     @NotNull(message = "field required.")
-    private String nmConta;
+    private String accountNumber;
     @NotNull(message = "field required.")
-    private Float valor;
+    private Float balance;
     @NotNull(message = "field required.")
-    private String formaPagamento;
+    private TypeOperationTransationEnum paymentsForm;
 
 }

@@ -1,9 +1,8 @@
 package br.com.objetive.financial.usecase.operationtransation.adapter.external.controller;
 
-import br.com.objetive.financial.usecase.operationtransation.service.TransacaoService;
 import br.com.objetive.financial.usecase.operationtransation.adapter.external.dto.OperationTransationRequest;
-import br.com.objetive.financial.usecase.operationtransation.adapter.external.dto.OperationTransationResponse;
-import org.springframework.beans.factory.annotation.Autowired;
+import br.com.objetive.financial.usecase.operationtransation.model.OperationTransationModel;
+import br.com.objetive.financial.usecase.operationtransation.port.OperationTransationInputPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,13 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController()
-@RequestMapping("/api/v1/transacao")
+@RequestMapping("/api/v1/operation-transation")
 public class TransacaoController {
-    @Autowired
-    private TransacaoService service;
+    private final OperationTransationInputPort operationTransationInputPort;
+
+    public TransacaoController(OperationTransationInputPort operationTransationInputPort) {
+        this.operationTransationInputPort = operationTransationInputPort;
+    }
+
 
     @PostMapping
-    public ResponseEntity<OperationTransationResponse> criarTransacaoBancaria(@RequestBody OperationTransationRequest dto){
-       return new ResponseEntity<>(service.criarTransacaoConta(dto), HttpStatus.CREATED);
+    public ResponseEntity<?> create(@RequestBody OperationTransationRequest operationTransationRequest) {
+        var model = OperationTransationModel.builder()
+                .numberAccount(operationTransationRequest.getAccountNumber())
+                .paymentsForm(operationTransationRequest.getPaymentsForm())
+                .balance(operationTransationRequest.getBalance())
+                .build();
+        return new ResponseEntity<>(operationTransationInputPort.createTransation(model), HttpStatus.CREATED);
     }
 }

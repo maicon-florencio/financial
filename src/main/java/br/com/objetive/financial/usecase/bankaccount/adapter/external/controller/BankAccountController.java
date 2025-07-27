@@ -34,13 +34,13 @@ public class BankAccountController {
             @ApiResponse(responseCode = "422", description = "Bussiness operation")
     })
     @PostMapping
-    public ResponseEntity<BankAccountDTO> createAccount(@Validated @RequestBody BankAccountDTO dto) {
+    public ResponseEntity<?> createAccount(@Validated @RequestBody BankAccountDTO dto) {
         var bankAccountRequest = BankAccountModel.builder()
                 .accountNumber(dto.getNumeroConta())
                 .balance(dto.getSaldo())
                 .build();
         var bankAccount = bankAccountInputPort.createAccount(bankAccountRequest);
-        return new ResponseEntity<>(BankAccountMapper.INSTANCE.toDTO(bankAccount), HttpStatus.CREATED);
+        return new ResponseEntity<>(bankAccount.getAccountNumber(), HttpStatus.CREATED);
     }
 
     @Operation(
@@ -54,7 +54,6 @@ public class BankAccountController {
     @GetMapping()
     public ResponseEntity<BankAccountDTO> findByNumberAccount(@RequestParam("numberAccount") String numberAccount) {
         var bankAccountModel = bankAccountInputPort.findAccountByAccountNumber(numberAccount);
-
         return new ResponseEntity<>(BankAccountMapper.INSTANCE.toDTO(bankAccountModel), HttpStatus.OK);
     }
 
