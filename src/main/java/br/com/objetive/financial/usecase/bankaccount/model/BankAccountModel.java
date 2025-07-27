@@ -10,6 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BankAccountModel {
+
+    private Long id;
     private String accountNumber;
     private Float balance;
 }
