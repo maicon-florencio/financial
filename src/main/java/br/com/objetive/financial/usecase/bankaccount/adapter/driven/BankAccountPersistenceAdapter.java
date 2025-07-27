@@ -14,7 +14,6 @@ public class BankAccountPersistenceAdapter implements BankAccountOutputPort {
         this.repository = repository;
     }
 
-
     @Override
     public BankAccount createAccount(BankAccount bankAccount) {
         return repository.save(bankAccount);

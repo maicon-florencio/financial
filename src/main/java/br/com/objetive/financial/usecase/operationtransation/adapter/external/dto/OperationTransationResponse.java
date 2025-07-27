@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Instant;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,4 +16,5 @@ public class OperationTransationResponse {
     private String accountBankNumber;
     private Float balance;
     private StatusOperationTransationEnum status;
+    private Instant dtCreated;
 }
