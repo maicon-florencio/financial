@@ -1,4 +1,4 @@
-package br.com.objetive.financial.financial.domain.dto;
+package br.com.objetive.financial.usecase.transationorder.adapter.external.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

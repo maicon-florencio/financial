@@ -1,8 +1,8 @@
 package br.com.objetive.financial.financial.service.order;
 
-import br.com.objetive.financial.financial.domain.dto.enumeration.TipoTransacaoEnum;
-import br.com.objetive.financial.financial.exception.BussinessExceptionErro;
-import br.com.objetive.financial.financial.util.TransacaoUtil;
+import br.com.objetive.financial.usecase.transationorder.enumeration.TypeOperationTransationEnum;
+import br.com.objetive.financial.common.exception.BussinessExceptionErro;
+import br.com.objetive.financial.common.TransacaoUtil;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Scope;
@@ -15,8 +15,8 @@ import org.springframework.stereotype.Service;
 @Scope(value = "prototype", proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class PixTransationDataService extends AbstractTransationDataService{
     @Override
-    public TipoTransacaoEnum getTransationType() {
-        return TipoTransacaoEnum.PIX;
+    public TypeOperationTransationEnum getTransationType() {
+        return TypeOperationTransationEnum.PIX;
     }
 
     @Override

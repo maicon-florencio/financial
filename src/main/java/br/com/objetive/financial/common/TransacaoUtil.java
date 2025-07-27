@@ -1,4 +1,4 @@
-package br.com.objetive.financial.financial.util;
+package br.com.objetive.financial.common;
 public class TransacaoUtil {
 
     public static String ERRO_VALOR_MAIS_TAXA_MAIOR_SALDO = "Valor não pode ser solicitado pois ao adicionar taxa de servico ultrapassa o saldo!";

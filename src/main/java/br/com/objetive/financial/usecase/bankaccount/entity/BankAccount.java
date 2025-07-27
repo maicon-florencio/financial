@@ -1,4 +1,4 @@
-package br.com.objetive.financial.financial.domain;
+package br.com.objetive.financial.usecase.bankaccount.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,17 +9,19 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+
 @Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Transacao {
-
+public class BankAccount implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nmConta;
+
+    private String numeroConta;
     private Float saldo;
-    private String formaPagamento;
+
 }

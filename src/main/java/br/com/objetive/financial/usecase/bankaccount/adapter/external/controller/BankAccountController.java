@@ -1,7 +1,7 @@
-package br.com.objetive.financial.financial.rest;
+package br.com.objetive.financial.usecase.bankaccount.adapter.external.controller;
 
-import br.com.objetive.financial.financial.domain.dto.BankAccountDTO;
 import br.com.objetive.financial.financial.service.BankAccountService;
+import br.com.objetive.financial.usecase.bankaccount.adapter.external.dto.BankAccountDTO;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;

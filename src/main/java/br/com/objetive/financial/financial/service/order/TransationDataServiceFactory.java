@@ -1,6 +1,6 @@
 package br.com.objetive.financial.financial.service.order;
 
-import br.com.objetive.financial.financial.domain.dto.enumeration.TipoTransacaoEnum;
+import br.com.objetive.financial.usecase.transationorder.enumeration.TypeOperationTransationEnum;
 import jakarta.annotation.PostConstruct;
 import lombok.AccessLevel;
 import lombok.Setter;
@@ -15,10 +15,10 @@ public class TransationDataServiceFactory {
     @Setter(value = AccessLevel.PUBLIC)
     public List<ITransationDataService> dataServices;
 
-    private Map<TipoTransacaoEnum,ITransationDataService> serviceCache;
+    private Map<TypeOperationTransationEnum,ITransationDataService> serviceCache;
 
     public TransationDataServiceFactory(List<ITransationDataService> dataServices,
-                                        Map<TipoTransacaoEnum ,ITransationDataService> cache){
+                                        Map<TypeOperationTransationEnum,ITransationDataService> cache){
         super();
         this.dataServices = dataServices;
         this.serviceCache = cache;
@@ -27,12 +27,12 @@ public class TransationDataServiceFactory {
     @PostConstruct
     public void initServiceCache() {
 
-        this.serviceCache = new EnumMap<>(TipoTransacaoEnum.class);
+        this.serviceCache = new EnumMap<>(TypeOperationTransationEnum.class);
         dataServices.forEach(service -> serviceCache.put(service.getTransationType(),service));
 
     }
 
-    public ITransationDataService getTransationTypeProcess(TipoTransacaoEnum dataType){
+    public ITransationDataService getTransationTypeProcess(TypeOperationTransationEnum dataType){
         ITransationDataService service = serviceCache.get(dataType);
         if (service ==null){
             throw new RuntimeException("Tipo de transação não encontrada");

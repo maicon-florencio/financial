@@ -1,10 +1,10 @@
 package br.com.objetive.financial.financial.service;
 
 import br.com.objetive.financial.financial.builder.BankAccountBuilder;
-import br.com.objetive.financial.financial.domain.BankAccount;
-import br.com.objetive.financial.financial.domain.dto.BankAccountDTO;
-import br.com.objetive.financial.financial.exception.BussinessExceptionErro;
-import br.com.objetive.financial.financial.repository.BankAccountRepository;
+import br.com.objetive.financial.usecase.bankaccount.entity.BankAccount;
+import br.com.objetive.financial.usecase.bankaccount.adapter.external.dto.BankAccountDTO;
+import br.com.objetive.financial.common.exception.BussinessExceptionErro;
+import br.com.objetive.financial.usecase.bankaccount.adapter.driven.BankAccountRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

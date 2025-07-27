@@ -1,7 +1,7 @@
-package br.com.objetive.financial.financial.mapper;
+package br.com.objetive.financial.usecase.bankaccount.converter;
 
-import br.com.objetive.financial.financial.domain.BankAccount;
-import br.com.objetive.financial.financial.domain.dto.BankAccountDTO;
+import br.com.objetive.financial.usecase.bankaccount.entity.BankAccount;
+import br.com.objetive.financial.usecase.bankaccount.adapter.external.dto.BankAccountDTO;
 import org.mapstruct.InheritInverseConfiguration;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;

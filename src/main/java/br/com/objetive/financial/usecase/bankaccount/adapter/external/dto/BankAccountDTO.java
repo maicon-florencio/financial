@@ -1,4 +1,4 @@
-package br.com.objetive.financial.financial.domain.dto;
+package br.com.objetive.financial.usecase.bankaccount.adapter.external.dto;
 
 import lombok.*;
 

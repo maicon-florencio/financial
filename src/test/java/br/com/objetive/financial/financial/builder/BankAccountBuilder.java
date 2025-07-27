@@ -1,7 +1,7 @@
 package br.com.objetive.financial.financial.builder;
 
-import br.com.objetive.financial.financial.domain.BankAccount;
-import br.com.objetive.financial.financial.domain.dto.BankAccountDTO;
+import br.com.objetive.financial.usecase.bankaccount.entity.BankAccount;
+import br.com.objetive.financial.usecase.bankaccount.adapter.external.dto.BankAccountDTO;
 
 import java.util.Arrays;
 import java.util.List;

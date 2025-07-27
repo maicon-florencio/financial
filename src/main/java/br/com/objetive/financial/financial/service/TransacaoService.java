@@ -1,9 +1,9 @@
 package br.com.objetive.financial.financial.service;
 
-import br.com.objetive.financial.financial.domain.dto.TransacaoRequestDTO;
-import br.com.objetive.financial.financial.domain.dto.TransacaoResponseDTO;
-import br.com.objetive.financial.financial.domain.dto.enumeration.TipoTransacaoEnum;
-import br.com.objetive.financial.financial.exception.BussinessExceptionErro;
+import br.com.objetive.financial.usecase.transationorder.adapter.external.dto.TransacaoRequestDTO;
+import br.com.objetive.financial.usecase.transationorder.adapter.external.dto.TransacaoResponseDTO;
+import br.com.objetive.financial.usecase.transationorder.enumeration.TypeOperationTransationEnum;
+import br.com.objetive.financial.common.exception.BussinessExceptionErro;
 import br.com.objetive.financial.financial.service.order.ITransationDataService;
 import br.com.objetive.financial.financial.service.order.TransationDataServiceFactory;
 import lombok.AllArgsConstructor;
@@ -30,7 +30,7 @@ public class TransacaoService {
     }
 
     private Float processTransacaoAnalize(TransacaoRequestDTO dto,  Float saldoConta){
-        ITransationDataService service = serviceFactory.getTransationTypeProcess(TipoTransacaoEnum.getTipoTransacaoEnumByValor(dto.getFormaPagamento()));
+        ITransationDataService service = serviceFactory.getTransationTypeProcess(TypeOperationTransationEnum.getTipoTransacaoEnumByValor(dto.getFormaPagamento()));
        return service.process(dto.getValor(),saldoConta);
     }
 

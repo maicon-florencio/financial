@@ -1,8 +1,8 @@
-package br.com.objetive.financial.financial.rest;
+package br.com.objetive.financial.usecase.transationorder.adapter.external.controller;
 
-import br.com.objetive.financial.financial.domain.dto.TransacaoRequestDTO;
-import br.com.objetive.financial.financial.domain.dto.TransacaoResponseDTO;
 import br.com.objetive.financial.financial.service.TransacaoService;
+import br.com.objetive.financial.usecase.transationorder.adapter.external.dto.TransacaoRequestDTO;
+import br.com.objetive.financial.usecase.transationorder.adapter.external.dto.TransacaoResponseDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

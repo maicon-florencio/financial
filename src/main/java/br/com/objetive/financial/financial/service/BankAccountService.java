@@ -1,13 +1,12 @@
 package br.com.objetive.financial.financial.service;
 
-import br.com.objetive.financial.financial.domain.BankAccount;
-import br.com.objetive.financial.financial.domain.dto.BankAccountDTO;
-import br.com.objetive.financial.financial.exception.BussinessExceptionErro;
-import br.com.objetive.financial.financial.exception.NotFoundEntityException;
-import br.com.objetive.financial.financial.mapper.BankAccountMapper;
-import br.com.objetive.financial.financial.repository.BankAccountRepository;
+import br.com.objetive.financial.usecase.bankaccount.entity.BankAccount;
+import br.com.objetive.financial.usecase.bankaccount.adapter.external.dto.BankAccountDTO;
+import br.com.objetive.financial.common.exception.BussinessExceptionErro;
+import br.com.objetive.financial.common.exception.NotFoundEntityException;
+import br.com.objetive.financial.usecase.bankaccount.converter.BankAccountMapper;
+import br.com.objetive.financial.usecase.bankaccount.adapter.driven.BankAccountRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
